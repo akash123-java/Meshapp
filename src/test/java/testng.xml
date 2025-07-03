@@ -4,7 +4,7 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="testcases.TC_02Login"/>
-    
+    <class name="testcases.TC_01Signup"/>
       <class name="testcases.TC_03CompanyLogin"/>
     </classes>
   </test> <!-- Test -->

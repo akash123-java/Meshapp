@@ -13,6 +13,8 @@ public class HomePage extends BasePage
 		super(driver);
 	}
 	
+	@FindBy(xpath="//span[normalize-space()='Create an Account']")
+	WebElement CreateanAccount;
 	
 	@FindBy(id="basic_companyname")
 	WebElement InputCompanyName;
@@ -32,6 +34,10 @@ public class HomePage extends BasePage
 	@FindBy(xpath="//button[@type='submit']")
 	WebElement buttonsubmit;
 	
+	public void CreateanAccount()
+	{
+		CreateanAccount.click();
+	}
 	
 	public void setCompanyname(String companyname)
 	{

@@ -1,27 +1,12 @@
     package testcases;
 
 	import org.testng.annotations.Test;
-    import org.testng.annotations.BeforeClass;
-	import java.time.Duration;
 
-	import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.chrome.ChromeDriver;
-	import pageObjects.LoginPage;
+    import pageObjects.LoginPage;
 
-	    public class TC_02Login
+	    public class TC_02Login extends BaseClass
 	    {
 
-		WebDriver driver;
-		
-		@BeforeClass
-		public void setup()
-		{
-			driver=new ChromeDriver();
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			driver.get("https://mesh-app-ashen.vercel.app/auth");
-			driver.manage().window().maximize();
-		}
-		
 		@Test
 		public void verifyAccountLogin() 
 		{

@@ -1,46 +1,40 @@
 package testcases;
 
-import org.testng.annotations.AfterClass;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import java.time.Duration;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.HomePage;
 
-public class TC_01Signup 
+    public class TC_01Signup extends BaseClass
     {
-	WebDriver driver;
-	
-	@BeforeClass
-	public void setup()
-	
-	{
-		driver=new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get("https://mesh-app-ashen.vercel.app/register");
-		driver.manage().window().maximize();
-	}
-	
 	@Test
-	public void verifyAccountRegister() 
+	public void verifyAccountRegister() throws InterruptedException 
 	{
 		HomePage hp=new HomePage(driver);
-		hp.setCompanyname("akashtest");
-		hp.setEmailAddress("akash@yopmail.com");
-		hp.setGstNumber("1234567890");
-	    hp.setGstCertificate("C:\\Users\\lenovo\\Desktop\\dummy.pdf");
-		hp.setCinnumber("99999999");
+		hp.CreateanAccount();
+		hp.setCompanyname(randomeString());
+		hp.setEmailAddress(randomeString()+"@yopmail.com");
+		hp.setGstNumber(randomeNumber());
+	    hp.setGstCertificate("C://Users//lenovo//Desktop//GST-Certificate.pdf");
+	    //Thread.sleep(2000);
+		hp.setCinnumber(randomeNumber());
 		hp.ClickSubmit();
-		
+	}
+	public String randomeString()
+	{
+		String generatedstring=RandomStringUtils.randomAlphabetic(8);
+		return generatedstring;
+	}
+
+    public String randomeNumber()
+    {
+      String generatednumber=RandomStringUtils.randomNumeric(10);
+      return generatednumber;
+    
+    }
 	}
 	
-	/*@AfterClass
-	public void teardown()
-	{
-		driver.close();
-	}*/
+	
+	
 	
 
-    }
+
